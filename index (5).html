@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Study Planner</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:wght@600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <h1>📅 AI Study Planner</h1>
+      <p>Paste your topics — get a smart day-by-day study schedule</p>
+    </header>
+
+    <!-- Input Form -->
+    <div class="card" id="form-card">
+
+      <label for="topics">Your topics / syllabus</label>
+      <textarea id="topics" rows="4" placeholder="e.g. Arrays, Linked Lists, Binary Trees, Dynamic Programming, Graphs, Sorting, OS concepts, DBMS..."></textarea>
+
+      <div class="row">
+        <div>
+          <label for="exam-date">Exam / deadline date</label>
+          <input type="date" id="exam-date" />
+        </div>
+        <div>
+          <label for="hours">Daily study hours</label>
+          <select id="hours">
+            <option value="1">1 hour/day</option>
+            <option value="2" selected>2 hours/day</option>
+            <option value="3">3 hours/day</option>
+            <option value="4">4 hours/day</option>
+            <option value="5">5+ hours/day</option>
+          </select>
+        </div>
+      </div>
+
+      <label>Your level</label>
+      <div class="tags" id="level-tags">
+        <span class="tag active" data-val="beginner">Beginner</span>
+        <span class="tag" data-val="intermediate">Intermediate</span>
+        <span class="tag" data-val="advanced">Advanced</span>
+      </div>
+
+      <div class="error" id="err"></div>
+      <button class="btn" id="gen-btn" onclick="generatePlan()">✨ Generate my study plan</button>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <p>Building your personalized plan...</p>
+    </div>
+
+    <!-- Result Section -->
+    <div class="result" id="result">
+      <div class="stats" id="stats"></div>
+      <div id="days"></div>
+      <button class="btn btn-outline" onclick="resetForm()">↩ Plan again</button>
+    </div>
+
+    <footer> AI Study Planner</footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
